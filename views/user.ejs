@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All user </title>
+    <style>
+       table{
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+
+th,td{
+    border: 2px solid black;
+    padding: 7px;
+    text-align: center;
+    width: 20%;
+}
+        .btns{
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(192, 225, 210);
+    font-weight: bold;
+
+}
+.back{
+    display: flex;
+    margin: auto;
+    margin-top: 10px;
+    width: 200px;
+    height: 30px;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(192, 225, 210);
+    font-weight: bold;
+
+}
+    </style>
+</head>
+<body>
+    
+    <table>
+       
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Edit Button</th>
+            <th>Delete Button</th>
+            
+        </tr>
+        <tr>
+           <% for(users of user)
+{%>
+    <tr>
+        <td><%=users.id%></td>
+        <td><%=users.name%></td>
+        <td><%=users.email%></td>
+        
+        <td>
+        <form  method="GET"action="/user/<%=users.id%>/edit">
+            <button class="btns">Edit User name</button></form>
+            </td>
+
+            <td>
+        <form  method="GET"action="/user/<%=users.id%>/delete">
+            <button class="btns">Delete User name</button></form>
+            </td>
+
+
+        
+    </tr>
+<%}%>
+        </tr>
+    </table>
+     <form  method="GET"action="/">
+            <button class="back">Back To Home</button>
+        </form>
+    
+</body>
+</html>
